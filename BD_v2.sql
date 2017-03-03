@@ -23,7 +23,7 @@ CREATE TABLE IF NOT EXISTS  `admaptec_jmln2`.`cmb_categoria` (
      `CODIGO` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
      `DESCRIPCION` VARCHAR(30),
      `PRECIO` DECIMAL(5, 2) NOT NULL
-)
+);
 
 
 CREATE TABLE IF NOT EXISTS `admaptec_jmln2`.`cmb_catedratico` (
