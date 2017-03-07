@@ -21,12 +21,6 @@ ENGINE = InnoDB
 DEFAULT CHARACTER SET = latin1
 COLLATE = latin1_spanish_ci;
 
-CREATE TABLE IF NOT EXISTS  `admaptec_jmln2`.`cmb_categoria` (
-     `CODIGO` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-     `DESCRIPCION` VARCHAR(30),
-     `PRECIO` DECIMAL(5, 2) NOT NULL
-);
-
 
 CREATE TABLE IF NOT EXISTS `admaptec_jmln2`.`cmb_catedratico` (
   `idcatedratico` INT NOT NULL AUTO_INCREMENT,
@@ -44,7 +38,7 @@ COLLATE = latin1_spanish_ci;
 
 
 CREATE TABLE IF NOT EXISTS `admaptec_jmln2`.`cmb_curso` (
-  `idcurso` INT NOT NULL,
+  `idcurso` INT NOT NULL AUTO_INCREMENT,
   `nombre` VARCHAR(45) NULL,
   PRIMARY KEY (`idcurso`))
 ENGINE = InnoDB
@@ -59,7 +53,9 @@ CREATE TABLE IF NOT EXISTS `admaptec_jmln2`.`cmb_asignacion`(
   `HORARIO` VARCHAR(15),
   `DIA`     VARCHAR(15),
   `ANIO`    INT,  
-  `COD_CAT` INT NOT NULL, 
+  `PRECIO` DECIMAL(5, 2) NOT NULL,
+  `CATEGORIA` VARCHAR(25),
+  `ACTIVO` BIT,
   PRIMARY KEY( `IDCURSO`,  `IDCATEDRATICO`,  `IDALUMNO`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = latin1
