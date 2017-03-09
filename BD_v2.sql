@@ -39,7 +39,9 @@ COLLATE = latin1_spanish_ci;
 
 CREATE TABLE IF NOT EXISTS `admaptec_jmln2`.`cmb_curso` (
   `idcurso` INT NOT NULL AUTO_INCREMENT,
-  `nombre` VARCHAR(45) NULL,
+  `nombre` VARCHAR(30) NULL,
+  `descripcion` VARCHAR(45) NULL,
+  `activo` BIT, 
   PRIMARY KEY (`idcurso`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = latin1
