@@ -154,7 +154,7 @@
     . "AND `us`.`ACTIVO` = 1 \n"
     . "AND `sig`.`IDCATEDRATICO` = ".$idCate."\n";
                 $queryCte21= $database->query($query4);
-                $btnaedisig='<button class="btn  btn-success btn-block" name="EDIasigna" value="asignar1"> Editar Asignación </button>';
+                $btnaedisig='<button class="btn  btn-success btn-block" name="edit" value="asignar1"> Editar Asignación </button>';
                 if(!isset($_POST['nombres']) || $_POST['nombres']==""){
 
                 }else{
@@ -169,7 +169,7 @@
     . "AND ( UPPER(`us`.`nombre`) LIKE UPPER('%".$_POST['nombres']."%') \n"
     . "OR UPPER(`us`.`apellidos`) LIKE UPPER('%".$_POST['nombres']."'))";
                 $queryCte21= $database->query($query5);
-                $btnaedisig='<button class="btn btn-success btn-block" name="EDIasigna" value="asignar1"> Editar Asignación </button>';
+                $btnaedisig='<button class="btn btn-success btn-block" name="edit" value="asignar1"> Editar Asignación </button>';
 
               }
 
@@ -202,18 +202,19 @@
                             </form>
                             <form class="form-vertical" method="POST" action="historial.php">
                                   <button class="btn btn-warning btn-block" name="historial" value="historial">HISTORIAL DE PAGO</button>
-                                  <input type="hidden" name="idAlum" value"idAlum" value="'.$registrosfiltrados['idA'].'">
-                                  <input type="hidden" name="idCurso" value"idCurso" value="'.$registrosfiltrados['idC'].'">
+                                  <input type="hidden" name="idalummp" value"idAlum" value="'.$registrosfiltrados['idA'].'"/>
+                                  <input type="hidden" name="idcurso" value"idCurso" value="'.$registrosfiltrados['idC'].'"/>
                             </form>
                             <form class="form-vertical" method="POST" action="asignaciones.php">
                               '.$btnasignacion.'
-                                  <input type="hidden" name="idAlum" value"idAlum" value="'.$registrosfiltrados['idA'].'">
+                                  <input type="hidden" name="idAlum" value"idAlum" value="'.$registrosfiltrados['idA'].'"/>
                             </form>
-                            <form class="form-vertical" method="POST" action="editarAsig.php">
+                            <form class="form-vertical" method="POST" action="asignaciones.php">
+
+                              <input type="hidden" name="idalumno" value"idAlum" value="'.$registrosfiltrados['idA'].'"/>
+                              <input type="hidden" name="idcurso" value"idCurso" value="'.$registrosfiltrados['idC'].'"/>
+                              <input type="hidden" name="idcatedratico" value="idcatedratico1" value"'.$registrosfiltrados['idT'].'"/>
                               '.$btnaedisig.'
-                              <input type="hidden" name="idAlum" value"idAlum" value="'.$registrosfiltrados['idA'].'">
-                              <input type="hidden" name="idCurso" value"idCurso" value="'.$registrosfiltrados['idC'].'">
-                              <input type="hidden" name="" value="idcatedratico" value"'.$registrosfiltrados['idT'].'>
                             </form>
                             </div>
                             <div class="modal-footer">
