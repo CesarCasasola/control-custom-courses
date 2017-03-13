@@ -3,7 +3,7 @@ Create database admaptec_jmln2
 
 use admaptec_jmln2;
 
-CREATE TABLE  `cmb_alumno` 
+CREATE TABLE IF NOT EXISTS  `admaptec_jmln2`.`cmb_alumno` 
 (
   `idalumno` INT NOT NULL AUTO_INCREMENT,
   `nombre` VARCHAR(45) NULL,
@@ -91,7 +91,7 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
 
 
-CREATE TABLE IF NOT EXISTS `currencies` (
+CREATE TABLE IF NOT EXISTS `admaptec_jmln2`.`currencies` (
   `id` int(10) unsigned NOT NULL,
   `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `symbol` varchar(255) NOT NULL,
