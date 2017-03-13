@@ -209,7 +209,8 @@
 	   die("No se pudo conectar a la base de datos");
 	 }
 	 
-	$datos="SELECT alumno.nombre as nombreAlumno, alumno.apellidos as apellidosAlumno, alumno.FECHA_NACIMIENTO, alumno.PADRE, alumno.TELEFONO, alumno.COMPANIA, alumno.TEL2, alumno.COMP2, maestro.idcatedratico, maestro.nombre AS nombreMaestro, curso.idcurso, curso.nombre as nombreCurso, asignacion.DIA, asignacion.HORARIO, asignacion.ANIO, asignacion.PRECIO, asignacion.CATEGORIA, asignacion.ACTIVO FROM cmb_asignacion asignacion INNER JOIN cmb_alumno alumno ON asignacion.IDALUMNO=alumno.idalumno INNER JOIN cmb_curso curso ON asignacion.IDCURSO=curso.idcurso INNER JOIN cmb_catedratico maestro ON asignacion.IDCATEDRATICO=maestro.idcatedratico WHERE asignacion.IDALUMNO=".$idalumno." AND (asignacion.IDCURSO=".$idcurso." AND asignacion.IDCATEDRATICO=".$idcatedratico.")";
+	$datos="SELECT alumno.nombre as nombreAlumno, alumno.apellidos as apellidosAlumno, alumno.FECHA_NACIMIENTO, alumno.PADRE, alumno.TELEFONO, alumno.COMPANIA, alumno.TEL2, alumno.COMP2, maestro.idcatedratico, maestro.nombre AS nombreMaestro, curso.idcurso, curso.nombre as nombreCurso, asignacion.DIA, asignacion.HORARIO, asignacion.ANIO, asignacion.PRECIO, asignacion.CATEGORIA, asignacion.ACTIVO FROM cmb_asignacion asignacion INNER JOIN cmb_alumno alumno ON asignacion.IDALUMNO=alumno.idalumno INNER JOIN cmb_curso curso ON asignacion.IDCURSO=curso.idcurso INNER JOIN cmb_catedratico maestro ON asignacion.IDCATEDRATICO=maestro.idcatedratico WHERE asignacion.IDALUMNO=".$idalumno." AND (asignacion.IDCURSO=".$idcurso." AND asignacion.IDCATEDRATICO=".$idcatedratico.");";
+	
   	$queryDatos= $database->query($datos);
 	 
   	while($registro  = $queryDatos->fetch_array( MYSQLI_BOTH)) 
@@ -395,8 +396,11 @@
   </div>
 </div>
   </form>';
+  
+  mysqli_close($database);
   	
   }
+  
   ?>
    
 </body>

@@ -27,7 +27,7 @@
   	$result=$database->query($stmt);
 	  	
   }else if(isset($_POST['edit'])){
-  	$idalumno=$_POST['alumnoId'];
+  	$idalumno=$_POST['idAlumno'];
   	$idcurso=$_POST['curso'];
   	$idcatedratico=$_POST['maestro'];
   	$horario=$_POST['hora'];
@@ -50,6 +50,6 @@
   }
   mysqli_close($database);
   
-  header('Location:	gestionBusqueda.php');
+ header('Location:	gestionBusqueda.php');
   
   ?>
