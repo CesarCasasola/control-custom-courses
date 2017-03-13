@@ -202,8 +202,8 @@
                             </form>
                             <form class="form-vertical" method="POST" action="historial.php">
                                   <button class="btn btn-warning btn-block" name="historial" value="historial">HISTORIAL DE PAGO</button>
-                                  <input type="hidden" name="idalummp" value"idAlum" value="'.$registrosfiltrados['idA'].'"/>
-                                  <input type="hidden" name="idcurso" value"idCurso" value="'.$registrosfiltrados['idC'].'"/>
+                                  <input type="hidden" name="idalummp" value="'.$registrosfiltrados['idA'].'"/>
+                                  <input type="hidden" name="idcurso" value="'.$registrosfiltrados['idC'].'"/>
                             </form>
                             <form class="form-vertical" method="POST" action="asignaciones.php">
                               '.$btnasignacion.'
@@ -211,9 +211,9 @@
                             </form>
                             <form class="form-vertical" method="POST" action="asignaciones.php">
 
-                              <input type="hidden" name="idalumno" value"idAlum" value="'.$registrosfiltrados['idA'].'"/>
-                              <input type="hidden" name="idcurso" value"idCurso" value="'.$registrosfiltrados['idC'].'"/>
-                              <input type="hidden" name="idcatedratico" value="idcatedratico1" value"'.$registrosfiltrados['idT'].'"/>
+                              <input type="hidden" name="idalumno" value="'.$registrosfiltrados['idA'].'"/>
+                              <input type="hidden" name="idcurso"  value="'.$registrosfiltrados['idC'].'"/>
+                              <input type="hidden" name="idcatedratico" value="'.$registrosfiltrados['idT'].'"/>
                               '.$btnaedisig.'
                             </form>
                             </div>
