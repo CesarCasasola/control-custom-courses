@@ -303,7 +303,7 @@
   <div class="form-group">
     <label class="control-label col-sm-2" for="idAlumno">Código:</label>
     <div class="col-sm-2">
-      <input class="form-control" id="idAlumno" name="idAlumno" value="'.$idalumno.'" disabled="true">
+      <input class="form-control" id="idAlumno" name="idAlumno" value="'.$idalumno.'" readonly>
     </div>
     <label class="control-label col-sm-2" for="nombre">Nombre:</label>
     <div class="col-sm-5">

@@ -44,14 +44,7 @@
 	<body>
 
 		<script>
-				function deleteData(str){
-					
-					var id = str;
-					var conf = window.confirm("¿Realmente desea eliminar al alumno con codigo: "+id+"?");
-					if(conf == true){
-						window.location = "delAlumno.php?id="+id;						
-					}
-				}
+				
 				
 				function recargar(){
 					location.reload();
@@ -300,7 +293,7 @@
 					//creacion de boton que servira como enlace a la pagina de asignacion
 					$btnAsignar="";
 					if($registroAlumno['ACTIVO'] == 1){
-						$btnAsignar='<form action="asignacion.php" method="POST">
+						$btnAsignar='<form action="asignaciones.php" method="POST">
 							<input type="hidden" name="idalumno" value="'.$registroAlumno['idalumno'].'"/></br>
 							<input type="submit" name="insertar" value="Asignar" class="btn btn-primary btn-block"/>
 						</form>';
