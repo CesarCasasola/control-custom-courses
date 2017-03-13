@@ -210,20 +210,20 @@
                             </form>
                             <form class="form-vertical" method="POST" action="historial.php">
 
-                                  <input type="hidden" name="idalumno" value"idAlum" value="'.$registrosfiltrados['idA'].'"/>
-                                  <input type="hidden" name="idcurso" value"idCurso" value="'.$registrosfiltrados['idC'].'"/>
+                                  <input type="hidden" name="idalumno" value="'.$registrosfiltrados['idA'].'"/>
+                                  <input type="hidden" name="idcurso" value="'.$registrosfiltrados['idC'].'"/>
                                   <button class="btn btn-warning btn-block" name="historial" value="historial">HISTORIAL DE PAGO</button>
                             </form>
                             <form class="form-vertical" method="POST" action="asignaciones.php">
 
-                                <input type="hidden" name="idalumno" value"idAlum" value="'.$registrosfiltrados['idA'].'"/>
+                                <input type="hidden" name="idalumno" value="'.$registrosfiltrados['idA'].'"/>
                                 '.$btnasignacion.'
                             </form>
                             <form class="form-vertical" method="POST" action="asignaciones.php">
 
-                              <input type="hidden" name="idalumno" value"idalumno1" value="'.$registrosfiltrados['idA'].'">
-                              <input type="hidden" name="idcurso" value"idcurso1" value="'.$registrosfiltrados['idC'].'"/>
-                              <input type="hidden" name="idcatedratico" value="idcatedratico1" value"'.$registrosfiltrados['idT'].'"/>
+                              <input type="hidden" name="idalumno" value="'.$registrosfiltrados['idA'].'">
+                              <input type="hidden" name="idcurso"  value="'.$registrosfiltrados['idC'].'"/>
+                              <input type="hidden" name="idcatedratico" value="'.$registrosfiltrados['idT'].'"/>
                               '.$btnaedisig.'
                             </form>
                             </div>
