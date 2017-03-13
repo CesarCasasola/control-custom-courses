@@ -31,6 +31,7 @@ CREATE TABLE IF NOT EXISTS `admaptec_jmln2`.`cmb_catedratico` (
   `compania` VARCHAR(45) NOT NULL,
   `USUARIO` VARCHAR(20) NOT NULL,
   `PASSWORD` VARCHAR(10) NOT NULL,
+  `ACTIVO` BIT,
   PRIMARY KEY (`idcatedratico`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = latin1
