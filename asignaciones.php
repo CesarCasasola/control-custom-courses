@@ -1,8 +1,8 @@
 <?php
 ////////////////// VARIABLES DE CONEXION A LA BASE DE DATOS //////////////////
-  $dbserver = "127.0.0.1";
-  $dbuser = "root";
-  $password = "dbn0w";
+  $dbserver = "localhost";
+  $dbuser = "admaptec_sibaseb";
+  $password = "SIbase2017";
   $dbname = "admaptec_jmln2";
   
   $horas = array("08:00", "09:00", "10:00", "11:00", "12:00", "14:00", "15:00", "16:00", "17:00", "18:00");
@@ -72,12 +72,13 @@
 	{
   	 $nombre=$registroAlumno['nombre'];
   	 $apellido=$registroAlumno['apellidos'];
-  	 $fechaNac=$registroAlumno['FECHA_NACIMIENTO'];
+  	 $fechaNac=date_format(date_create($registroAlumno['FECHA_NACIMIENTO']), 'd-m-Y');
   	 $padre=$registroAlumno['PADRE'];
   	 $tel1=$registroAlumno['TELEFONO'];
   	 $comp1=$registroAlumno['COMPANIA'];
   	 $tel2=$registroAlumno['TEL2'];
   	 $comp2=$registroAlumno['COMP2'];
+  	 
   	 
   	}
   	
@@ -178,11 +179,11 @@
 <div class="form-group">
   <label class="control-label col-sm-2" for="precio:">Precio* :</label>
   <div class="col-sm-2">
-    <input class="form-control" id="precio" placeholder="Sólo números" name="precio" value="" required>
+    <input class="form-control" id="precio" placeholder="Sólo números" name="precio" value="" maxlength="6" required>
   </div>
   <label class="control-label col-sm-2" for="categoria">Categoría* :</label>
   <div class="col-sm-3">
-    <input class="form-control" id="categoria" placeholder="Hasta 25 caracteres" name="categoria" value="" required>
+    <input class="form-control" id="categoria" placeholder="Hasta 25 caracteres" name="categoria" value="" maxlength="25" required>
   </div>
 </div>
 
@@ -217,7 +218,7 @@
 	{
   	 $nombreAlumno=$registro['nombreAlumno'];
   	 $apellido=$registro['apellidosAlumno'];
-  	 $fechaNac=$registro['FECHA_NACIMIENTO'];
+  	 $fechaNac=date_format(date_create($registro['FECHA_NACIMIENTO']), 'd-m-Y');
   	 $padre=$registro['PADRE'];
   	 $tel1=$registro['TELEFONO'];
   	 $comp1=$registro['COMPANIA'];
@@ -240,23 +241,7 @@
   	$elementosHoras='<option value="'.$horario.'">'.$horario.'</option>'.$elementosHoras;
   	
   	
-  	//representacion de los maestros.
-  	$cated="SELECT idcatedratico, nombre FROM cmb_catedratico";
-  	$queryMaestros= $database->query($cated);
-	$maestros='<option value="'.$idcatedratico.'">'.$nombreMaestro.'</option>';
-  	while($registroMaestro  = $queryMaestros->fetch_array( MYSQLI_BOTH)) 
-	{
-			$maestros=$maestros.'<option value="'.$registroMaestro['idcatedratico'].'">'.$registroMaestro['nombre'].'</option>';
-	}
-	
-	//representacion de los cursos
-  	$curse="SELECT idcurso, nombre FROM cmb_curso where activo=1";
-  	$queryCursos= $database->query($curse);
-	$cursos='<option value="'.$idcurso.'">'.$nombreCurso.'</option>';
-  	while($registroCurso  = $queryCursos->fetch_array( MYSQLI_BOTH)) 
-	{
-			$cursos=$cursos.'<option value="'.$registroCurso['idcurso'].'">'.$registroCurso['nombre'].'</option>';
-	}
+  	
   	
 				  	//representacion campo activo/inactivo
 				  	$checkActivo="";
@@ -346,15 +331,13 @@
   <div class="form-group">
     <label class="control-label col-sm-2" for="maestro">Maestro* :</label>
     <div class="col-sm-3">
-      <select required name="maestro" id="maestro" class="form-control col-sm-3" required>
-       	'.$maestros.'
-      </select>
+      <input type="hidden"  name="maestro" id="maestro" value="'.$idcatedratico.'">
+      <input type="text"  name="maestroValor" id="maestroValor" class="form-control col-sm-3" value="'.$nombreMaestro.'" required readonly>
     </div>
     <label class="control-label col-sm-2" for="curso">Curso* :</label>
     <div class="col-sm-3">
-      <select required name="curso" id="curso" class="form-control col-sm-3" required>
-      '.$cursos.'
-      </select>
+    	<input type="hidden"  name="curso" id="curso" value="'.$idcurso.'">
+      <input type="text"  name="cursoValor" id="cursoValor" class="form-control col-sm-3" value="'.$nombreCurso.'" required readonly>
     </div>
 </div>
 
@@ -380,11 +363,11 @@
 <div class="form-group">
   <label class="control-label col-sm-2" for="precio:">Precio* :</label>
   <div class="col-sm-2">
-    <input class="form-control" id="precio" placeholder="Sólo números" name="precio" value="'.$precio.'" required>
+    <input class="form-control" id="precio" placeholder="Sólo números" name="precio" value="'.$precio.'" maxlength="6" required>
   </div>
   <label class="control-label col-sm-2" for="categoria">Categoría* :</label>
   <div class="col-sm-3">
-    <input class="form-control" id="categoria" placeholder="Hasta 25 caracteres" name="categoria" value="'.$categoria.'" required>
+    <input class="form-control" id="categoria" placeholder="Hasta 25 caracteres" name="categoria" value="'.$categoria.'" maxlength="25" required>
   </div>
 </div>
 

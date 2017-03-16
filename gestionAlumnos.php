@@ -1,9 +1,9 @@
 <?php
 ////////////////// CONEXION A LA BASE DE DATOS //////////////////
- $dbserver = '127.0.0.1';
- $dbuser = 'root';
- $password = 'dbn0w';
- $dbname = 'admaptec_jmln2';
+  $dbserver = "localhost";
+  $dbuser = "admaptec_sibaseb";
+  $password = "SIbase2017";
+  $dbname = "admaptec_jmln2";
 
  $database = new mysqli($dbserver, $dbuser, $password, $dbname);
 
@@ -73,9 +73,9 @@
 				<table class="table bg-info"  id="tabla">
 					<tr>
 						<td><label>Apellidos*:</label></br>
-						<input required name="apellido" placeholder="Apellidos"/></td>
+						<input required name="apellido" placeholder="Apellidos" maxlength="45"/></td>
 						<td><label>Nombres*:</label></br>
-						<input required name="nombre" placeholder="Nombres"/></td>
+						<input required name="nombre" placeholder="Nombres" maxlength="45"/></td>
 						<td><label>Fecha de Nacimiento*:</label></br>
 						<input required type="date" name="fechNac"
 						step="1" min="1900-01-01" max="<?php echo date('Y-m-d');?>" 
@@ -84,9 +84,9 @@
 					</tr>
 					<tr>
 						<td><label>Padre/Encargado*:</label></br>
-						<input required name="padre" placeholder="Padre/Encargado"/></td>
+						<input required name="padre" placeholder="Padre/Encargado" maxlength="50"/></td>
 						<td><label>Teléfono 1*:</label></br>
-						<input required name="telefono1" placeholder="Teléfono 1"/></td>
+						<input required name="telefono1" placeholder="Teléfono 1" maxlength="8"/></td>
 						<td>
 						<label>Compañía*:</label></br>
 						<select required name="comp1" class="btn-default">
@@ -99,7 +99,7 @@
 					<tr>
 						<td></td>
 						<td><label>Teléfono 2:</label></br>
-						<input name="telefono2"  placeholder="Teléfono 2"/></td>
+						<input name="telefono2"  placeholder="Teléfono 2" maxlength="8"/></td>
 						<td>
 						<label>Compañía:</label></br>
 						<select  name="comp2" class="btn-default">
@@ -114,7 +114,7 @@
 						<td></td>
 						<td>
 							<label>Observaciones:</label></br>
-							<textarea cols="30" rows="3" name="observaciones" placeholder="Observaciones"></textarea>
+							<textarea cols="30" rows="3" name="observaciones" placeholder="Observaciones" maxlength="250"></textarea>
 						</td>
 						<td>
 						<input type="submit" name="insertar" value="Insertar Alumno" class="btn btn-info"/>
@@ -202,6 +202,7 @@
 						<th>Compañía</th>
 						<th>Tel 2</th>
 						<th>Compañía</th>
+						<th>Estado</th>
 						<th width="250" class="text-centered">Opciones</th>
 
 				    	</tr>
@@ -306,13 +307,14 @@
 				    	<td>'.$registroAlumno['idalumno'].'</td>
 				    	<td>'.$registroAlumno['apellidos'].'</td>
 				    	<td>'.$registroAlumno['nombre'].'</td>
-				    	<td>'.$registroAlumno['FECHA_NACIMIENTO'].'</td>
+				    	<td>'.date_format(date_create($registroAlumno['FECHA_NACIMIENTO']), 'd-m-Y').'</td>
 				    	<td>'.$registroAlumno['PADRE'].'</td>
 				    	<td>'.$registroAlumno['TELEFONO'].'</td>
 				    	<td>'.$registroAlumno['COMPANIA'].'</td>
 				    	<td>'.$registroAlumno['TEL2'].'</td>
 				    	<td>'.$registroAlumno['COMP2'].'</td>
-				    	<td>'.$botonActivo.'
+				    	<td>'.$botonActivo.'</td>
+				    	<td>
 				    	
 				       	
 				    	
@@ -329,17 +331,17 @@
 				    				<form class="form-vertical" method="POST" action="upAlumno.php">
 				    					<div class="modal-body form-group">
 				    						<input type="hidden" name="id" value="'.$registroAlumno['idalumno'].'"/>
-				    						<label class"control-label col-sm-2">Nombres: </label><input class="form-control" required name="apellido" id="apellido-'.$registroAlumno['idalumno'].'" value="'.$registroAlumno['apellidos'].'" /></br>
-				    						<label class"control-label col-sm-2">Apellidos: </label><input class="form-control" required name="nombre" id="nombre-'.$registroAlumno['idalumno'].'" value="'.$registroAlumno['nombre'].'" /></br>
+				    						<label class"control-label col-sm-2">Nombres: </label><input class="form-control" required name="apellido" id="apellido-'.$registroAlumno['idalumno'].'" value="'.$registroAlumno['apellidos'].'" maxlength="45" /></br>
+				    						<label class"control-label col-sm-2">Apellidos: </label><input class="form-control" required name="nombre" id="nombre-'.$registroAlumno['idalumno'].'" value="'.$registroAlumno['nombre'].'" maxlength="45" /></br>
 				    						<label class"control-label col-sm-2">Fecha de Nacimiento:</label>
-										<input class="form-control" required type="date" name="fechNac" id="fechNac-'.$registroAlumno['idalumno'].'" step="1" min="1900-01-01" max="<?php echo date('.'Y-m-d'.');?>" value="'.$registroAlumno['FECHA_NACIMIENTO'].'" ></br>
-										<label class"control-label col-sm-2">Padre/Encargado: </label><input class="form-control" required name="padre" id="padre-'.$registroAlumno['idalumno'].'" value="'.$registroAlumno['PADRE'].'" /></br>
-										<label class"control-label col-sm-2">Teléfono 1: </label><input class="form-control" required name="telefono" id="telefono-'.$registroAlumno['idalumno'].'"  value="'.$registroAlumno['TELEFONO'].'" /></br>
+										<input class="form-control" required type="date" name="fechNac" id="fechNac-'.$registroAlumno['idalumno'].'" step="1" min="1900-01-01" max="<?php echo date('.'Y-m-d'.');?>" value="'.date_format(date_create($registroAlumno['FECHA_NACIMIENTO']), 'Y-m-d').'" ></br>
+										<label class"control-label col-sm-2">Padre/Encargado: </label><input class="form-control" required name="padre" id="padre-'.$registroAlumno['idalumno'].'" value="'.$registroAlumno['PADRE'].'" maxlength="50" /></br>
+										<label class"control-label col-sm-2">Teléfono 1: </label><input class="form-control" required name="telefono" id="telefono-'.$registroAlumno['idalumno'].'"  value="'.$registroAlumno['TELEFONO'].'" maxlength="8" /></br>
 										<label class"control-label col-sm-2">Compañía: </label><select class="form-control" required name="comp" id="comp-'.$registroAlumno['idalumno'].'" class="btn-default" value="'.$registroAlumno['COMPANIA'].'">
 							'.$compania1.'
 										</select></br>	
 										
-										<label class"control-label col-sm-2">Teléfono 2: </label><input class="form-control"  name="telefono2" id="tel2-'.$registroAlumno['idalumno'].'"  value="'.$registroAlumno['TEL2'].'" /></br>
+										<label class"control-label col-sm-2">Teléfono 2: </label><input class="form-control"  name="telefono2" id="tel2-'.$registroAlumno['idalumno'].'"  value="'.$registroAlumno['TEL2'].'" maxlength="8" /></br>
 										<label class"control-label col-sm-2">Compañía: </label><select class="form-control"  name="comp2" id="comp2-'.$registroAlumno['idalumno'].'" class="btn-default" value="'.$registroAlumno['COMP2'].'">
 							'.$compania2.'
 										</select></br>
@@ -372,7 +374,7 @@
 				    					<div class="modal-body form-group">
 				    						<input type="hidden" name="id" value="'.$registroAlumno['idalumno'].'"/>
 				    						<label class"control-label col-sm-2">Observaciones: </label>
-				    						<textarea cols="60" rows="6" name="observaciones">'.$registroAlumno['OBSERVACIONES'].'</textarea>				    						
+				    						<textarea cols="60" rows="6" name="observaciones" maxlength="250">'.$registroAlumno['OBSERVACIONES'].'</textarea>				    						
 				    						<div class="modal-footer">
 				    						<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
 				    						<input type="submit" name="editObservaciones" value="Actualizar" class="btn btn-primary"/>

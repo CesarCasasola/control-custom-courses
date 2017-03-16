@@ -1,8 +1,8 @@
 <?php
 ////////////////// CONEXION A LA BASE DE DATOS //////////////////
-  $dbserver = "127.0.0.1";
-  $dbuser = "root";
-  $password = "dbn0w";
+  $dbserver = "localhost";
+  $dbuser = "admaptec_sibaseb";
+  $password = "SIbase2017";
   $dbname = "admaptec_jmln2";
  
   $database = new mysqli($dbserver, $dbuser, $password, $dbname);
@@ -52,7 +52,7 @@
 		<nav class="navbar navbar-light" style="background-color: #66ccff;">
 			  <div class="container-fluid">
 			    <div class="navbar-header">
-				 <a class="navbar-brand" href="#">
+				 <a class="navbar-brand" href="http://www.centromusicalbase.com/sibase/">
 				 <span class="glyphicon glyphicon-home"></span>   Sistema Base</a>
 			   </div>
 	   	</nav>
@@ -72,11 +72,11 @@
 						<td></td>
 						<td><label>Nombre del curso*: </label></td>
 						<td>
-						<input required name="nombre" placeholder="Nombre del curso"/>
+						<input required name="nombre" placeholder="Nombre (30 caracteres)" maxlength="30"/>
 						</td>
 						<td><label>Descripción*: </label></td>
 						<td>
-						<input required name="descripcion" placeholder="Descripción"/>
+						<input required name="descripcion" placeholder="Descripción (45 caracteres)" maxlength="45"/>
 						</td>
 						<td><input type="submit" name="insertar" value="Insertar" class="btn btn-info"/></td>
 					</tr>					

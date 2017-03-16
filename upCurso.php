@@ -1,8 +1,8 @@
 <?php
 ////////////////// CONEXION A LA BASE DE DATOS //////////////////
-  $dbserver = "127.0.0.1";
-  $dbuser = "root";
-  $password = "dbn0w";
+  $dbserver = "localhost";
+  $dbuser = "admaptec_sibaseb";
+  $password = "SIbase2017";
   $dbname = "admaptec_jmln2";
  
   $database = new mysqli($dbserver, $dbuser, $password, $dbname);
